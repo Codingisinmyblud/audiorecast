@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Audio
+*.wav
+*.mp3
+*.m4a
+*.opus
+*.ogg
+*.flac
+*.zip
+*.npy
+
+# Demucs models + cache
+*.th
+*.pt
+*.ckpt
+*.onnx
+*.gz
+*.json
+
+# Environment and build
+.venv/
+.env
+.cache/
+*.log
+.mypy_cache/
+.poetry/
+site/
+
+# Output
+data/raw/
+
+# VSCode
+.vscode/
