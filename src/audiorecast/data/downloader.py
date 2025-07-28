@@ -1,6 +1,7 @@
 # src/audiorecast/data/downloader.py
 from pathlib import Path
 import subprocess, json, yt_dlp
+import time
 
 def download_audio(url: str, out_dir: Path) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -12,4 +13,6 @@ def download_audio(url: str, out_dir: Path) -> Path:
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
+        print(f"[INFO] Downloaded: {info.get('title')} ({url})")
+        time.sleep(5)
     return out_dir / f"{info['id']}.wav"
