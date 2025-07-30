@@ -2,7 +2,7 @@
 from pathlib import Path
 from audiorecast.data import downloader, stem_splitter, segmenter
 
-PLAYLIST_FILE = Path("data/ingest/penn_masala.txt")
+PLAYLIST_FILE = Path("data/ingest/ben_horsburgh.txt")
 RAW_DIR = Path("data/raw")
 
 for url in PLAYLIST_FILE.read_text().splitlines():
