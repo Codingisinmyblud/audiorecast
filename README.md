@@ -71,6 +71,15 @@ Obviously, the results aren’t perfect, yet. With a larger acapella database, b
 
 This is just the starting point, there's a lot of exciting room to grow.
 
+## Docker Support
+
+You can run this project directly via Docker:
+
+**Build locally**:
+```bash
+docker build -t audiorecast .
+```
+
 ## Installation Instructions
 ### Clone the repo
 ```bash
