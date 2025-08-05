@@ -18,12 +18,14 @@ def adapt_slice(slice_path: Path, target_duration: float, sr: int = DEFAULT_SR) 
     rate = len(y) / (target_duration * sr)
     y = librosa.effects.time_stretch(y, rate=rate)
     
+    # Time stretch so the length =~ target
     target_len = int(target_duration * sr)
     if len(y) < target_len:
         y = np.pad(y, (0, target_len - len(y)))
     else:
         y = y[:target_len]
 
+    # Loudness Normalization 
     y = rms_normalize(y)
     return y.astype(np.float32)
 
