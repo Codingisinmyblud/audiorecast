@@ -4,6 +4,12 @@ from pathlib import Path
 import numpy as np, librosa, soundfile as sf
 
 DEFAULT_SR = 16_000
+TARGET_RMS = 0.12
+
+def rms_normalize(y: np.ndarray, target_rms: float = TARGET_RMS) -> np.ndarray:
+    rms  = np.sqrt(np.mean(y ** 2) + 1e-9)
+    gain = target_rms / rms
+    return np.clip(y * gain, -1.0, 1.0)
 
 def adapt_slice(slice_path: Path, target_duration: float, sr: int = DEFAULT_SR) -> np.ndarray:
     # Returns a 1-D float32 array exactly `target_duration` seconds long.
@@ -17,6 +23,8 @@ def adapt_slice(slice_path: Path, target_duration: float, sr: int = DEFAULT_SR) 
         y = np.pad(y, (0, target_len - len(y)))
     else:
         y = y[:target_len]
+
+    y = rms_normalize(y)
     return y.astype(np.float32)
 
 
