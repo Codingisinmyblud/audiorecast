@@ -1,8 +1,10 @@
 # scripts/ingest_acapellas.py
+# to run: poetry run python scripts/ingest_acapellas.py 
+
 from pathlib import Path
 from audiorecast.data import downloader, stem_splitter, segmenter
 
-PLAYLIST_FILE = Path("data/ingest/ben_horsburgh.txt")
+PLAYLIST_FILE = Path("data/ingest/misc.txt")
 RAW_DIR = Path("data/raw")
 
 for url in PLAYLIST_FILE.read_text().splitlines():
