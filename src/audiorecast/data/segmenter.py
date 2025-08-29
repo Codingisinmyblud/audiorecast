@@ -5,7 +5,7 @@ import librosa, soundfile as sf, numpy as np
 DEFAULT_SR = 16_000
 
 def slice_stem(stem_path: Path, win_sec: float = 3.0, hop_sec: float = 1.0) -> list[Path]:
-    # eturns a list of Path objects for every slice written. 
+    # Returns a list of Path objects for every slice written. 
     # If slices already exist, they are reused (no double-write).
 
     y, sr = librosa.load(stem_path, sr=DEFAULT_SR, mono=True)
