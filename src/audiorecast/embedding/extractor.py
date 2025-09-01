@@ -21,5 +21,5 @@ class EmbeddingExtractor:
 
         wav = wav.to(self.device)
         reps, _ = self.model.extract_features(wav)  # list of layers
-        vec = reps[-1].mean(dim=-1).squeeze(0)      # (768, _)
+        vec = reps[-1].mean(dim=1).squeeze(0)      # (768, _)
         return vec.cpu()
