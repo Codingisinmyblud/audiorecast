@@ -24,6 +24,7 @@ pydantic = "^2.11.7"
 diffq = "^0.2.4"
 scipy = "^1.16.1"
 tqdm = "^4.67.1"
+matplotlib = "^3.10.5"
 
 
 [build-system]
