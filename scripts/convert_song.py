@@ -1,4 +1,6 @@
 # for reference: audiorecast/scripts/convert_song.py
+# to run: poetry run python audiorecast/scripts/convert_song.py --input path/to/song.wav --out path/to/output.wav
+
 import argparse, sys
 from pathlib import Path
 from audiorecast.pipeline import convert_song
